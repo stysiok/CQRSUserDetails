@@ -1,0 +1,12 @@
+###
+POST https://localhost:5001/UserDetails
+Content-Type: application/json 
+
+{
+    "Name": "New",
+    "Surname": "Person",
+    "EmailAddress": "new@person.com"
+}
+
+###
+GET https://localhost:5001/UserDetails/3

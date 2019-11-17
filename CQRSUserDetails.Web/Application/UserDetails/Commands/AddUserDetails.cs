@@ -1,12 +1,12 @@
 using CQRSUserDetails.Web.Infrastructure;
 
-namespace CQRSUserDetails.Web.UserDetails.Commands
+namespace CQRSUserDetails.Web.Application.UserDetails.Commands
 {
-    public class EditUserDetails : ICommand
+    public class AddUserDetails : ICommand
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Surname { get; set; }
         public string EmailAddress { get; set; }
-        public int Phonenumber { get; set; }
     }
 }

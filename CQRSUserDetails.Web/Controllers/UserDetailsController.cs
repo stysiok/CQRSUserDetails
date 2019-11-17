@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
 using CQRSUserDetails.Web.Infrastructure;
-using CQRSUserDetails.Web.UserDetails.Commands;
-using CQRSUserDetails.Web.UserDetails.Dtos;
-using CQRSUserDetails.Web.UserDetails.Queries;
+using CQRSUserDetails.Web.Application.UserDetails.Commands;
+using CQRSUserDetails.Web.Application.UserDetails.Dtos;
+using CQRSUserDetails.Web.Application.UserDetails.Queries;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CQRSUserDetails.Web.Controllers
@@ -18,20 +18,20 @@ namespace CQRSUserDetails.Web.Controllers
             _dispatcher = dispatcher;   
         }
 
-        [HttpGet]
+        [HttpGet("{UserId}")]
         public async Task<ActionResult<UserDetailsDto>> Get([FromRoute]GetUserDetails query)
         {
             var data = await _dispatcher.QueryAsync(query);
 
-            return Ok();
+            return Ok(data);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]EditUserDetails command)
+        public async Task<IActionResult> Post([FromBody]AddUserDetails command)
         {
             await _dispatcher.SendAsync(command);
 
-            return Ok();
+            return NoContent();
         }
     }
 }

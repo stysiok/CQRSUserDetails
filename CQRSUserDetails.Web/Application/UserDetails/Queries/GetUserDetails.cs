@@ -1,7 +1,7 @@
 using CQRSUserDetails.Web.Infrastructure;
-using CQRSUserDetails.Web.UserDetails.Dtos;
+using CQRSUserDetails.Web.Application.UserDetails.Dtos;
 
-namespace CQRSUserDetails.Web.UserDetails.Queries
+namespace CQRSUserDetails.Web.Application.UserDetails.Queries
 {
     public class GetUserDetails : IQuery<UserDetailsDto>
     {
